@@ -1,0 +1,58 @@
+<!-- app/templates/admin/rooms/rooms.html -->
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "layout.html" %}
+{% block title %}Rooms{% endblock %}
+{% block content %}
+<div class="content-section">
+    <div class="middle">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <h1 style="text-align:center;">Rooms</h1>
+        {% if rooms%}
+          <hr class="intro-divider">
+          <div class="center">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr class="success">
+                  <th width="15%"> Room Number </th>
+                  <th width="15%"> Capacity</th>
+                  <th width="15%"> Edit </th>
+                  <th width="15%"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for room in rooms %}
+                <tr>
+                  <td> {{ room.room_no }} </td>
+                  <td> {{ room.capacity }} </td>
+                  <td>
+                    <a href="{{ url_for('admin.edit_room', roomnumber=room.room_no) }}">
+                      <i class="fa fa-pencil"></i> Edit 
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{{ url_for('admin.delete_room', roomnumber=room.room_no) }}">
+                      <i class="fa fa-trash"></i> Delete 
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+            <h3> No Rooms have been added. </h3>
+            <hr class="intro-divider">
+        {% endif %}
+          <a href="{{ url_for('admin.add_room') }}" class="btn btn-info btn-lg">
+            <i class="fa fa-plus"></i>
+            Add Room
+          </a>
+        </div>
+  </div>
+</div>
+{% endblock %}

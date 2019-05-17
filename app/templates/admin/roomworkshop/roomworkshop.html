@@ -1,0 +1,23 @@
+<!-- app/templates/admin/roomworkshop/roomworkshop.html -->
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "layout.html" %}
+{% block title %}Assign Room{% endblock %}
+{% block content %}
+<div class="content-section">
+    <div class="middle">
+        <div class="center">
+            <h1> Assign Rooms workshops</h1>
+            <br/>
+            <p>
+                Select a workshop to assign to
+                <span style="color: #aec251;">
+                    {{ room.room_no }}
+                </span>
+            </p>
+            <br/>
+            {{ wtf.quick_form(form) }}
+       </div>
+  </div>
+</div>
+{% endblock %}

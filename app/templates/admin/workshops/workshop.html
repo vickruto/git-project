@@ -1,0 +1,26 @@
+<!-- app/templates/admin/workshops/workshop.html -->
+
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "layout.html" %}
+{% block title %}
+    {% if add_workshop %}
+        Add workshop
+    {% else %}
+        Edit workshop
+    {% endif %}
+{% endblock %}
+{% block content %}
+<div class="content-section">
+    <div class="middle">
+        <div class="center">
+            {% if add_workshop %}
+                <h1>Add Workshop</h1>
+            {% else %}
+                <h1>Edit Workshop</h1>
+            {% endif %}
+            <br/>
+            {{ wtf.quick_form(form) }}
+        </div>
+     </div>
+</div>
+{% endblock %}

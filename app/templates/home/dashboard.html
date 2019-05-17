@@ -1,0 +1,19 @@
+<!--app/templates/homepage/dashboard.html-->
+{% extends "layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>Hi {{ current_user.username }}</h1>
+                    <h3>Kindly proceed to Sign up for workshop(s)</h3>
+                    <hr class="intro-divider">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<!--app/templates/auth/sign_up_workshop.html-->
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}SignUp2019{% endblock %}
+{% block content %}
+ <div class="content-section">
+  <div class="center">
+     <h1>Register for a workshop</h1>
+     <br/>
+     {{wtf.quick_form(form)}}
+   </div>
+ </div>
+{% endblock %}

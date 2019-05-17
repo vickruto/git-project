@@ -1,0 +1,45 @@
+<!-- app/templates/admin/roomworkshop/rooms_participant.html -->
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "layout.html" %}
+{% block title %}Workshops 2019{% endblock %}
+{% block content %}
+<div class="content-section">
+    <div class="middle">
+      <br/>
+        {{ utils.flashed_messages() }}
+      <br/>
+       <h1 style="text-align:center;">Workshops 2019</h1>
+          <hr class="intro-divider">
+          <div class="center">
+            <table class="table table-striped ">
+              <thead>
+                <tr class="success">
+                  <th width="15%"> WorkshopID </th>
+                  <th width="15%"> Workshop </th>
+                  <th width="15%"> Date </th>
+                  <th width="25%"> Room </th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for workshop in workshops %}
+                   <tr>
+                      <td> {{ workshop.id }} </td>
+                      <td> {{ workshop.workshop }} </td>
+                      <td> {{ workshop.date }} </td>
+                  {% for room in rooms %} 
+                      {% if workshop.id==room.workshop %}
+                      <td>{{ room.room_no }}</td>
+                      {% else %}
+                      <td>-</td>
+                      {% endif %}
+                  {% endfor %}    
+                    </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          <h4><a href="{{url_for('auth.sign_up')}}"class="btn btn-link  btn-md">Click here to register</a></h4>
+          </div>
+     </div>
+</div>
+{% endblock %}

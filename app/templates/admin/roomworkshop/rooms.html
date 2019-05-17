@@ -1,0 +1,46 @@
+<!-- app/templates/admin/roomworkshop/rooms.html -->
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "layout.html" %}
+{% block title %}Workshop-Rooms{% endblock %}
+{% block content %}
+<div class="content-section">
+    <div class="middle">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <h1 style="text-align:center;">Workshop-Rooms</h1>
+          <hr class="intro-divider">
+          <div class="center">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr class="success">
+                  <th width="15%"> Room </th>
+                  <th width="30%"> WorkshopID </th>
+                  <th width="15%"> Assign </th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for room in rooms %}
+                   <tr>
+                      <td> {{ room.room_no }} </td>
+                      <td>
+                        {% if room.workshop %}
+                          {{ room.workshop }}
+                        {% else %}
+                          -
+                        {% endif %}
+                      </td>
+                     <td>
+                        <a href="{{ url_for('admin.assign_room_workshop', roomnumber=room.room_no) }}">
+                          <i class="fa fa-plus"></i> Assign
+                        </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+     </div>
+</div>
+{% endblock %}

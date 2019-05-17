@@ -1,0 +1,19 @@
+<!--app/templates/home/dashboard.html-->
+{% extends "layout.html" %}
+{% block title %}AdminDashboard{% endblock %}
+{% block content %}
+<div class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+                    <h1>Hello {{ current_user.username }}</h1>
+                    <h3>Adminisrators Only!</h3>
+                    <hr class="intro-divider">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
